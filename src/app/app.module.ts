@@ -14,6 +14,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatInputModule,MatFormFieldModule,ReactiveFormsModule,
-    MatCheckboxModule,MatButtonModule,MatCardModule,FlexLayoutModule,FormsModule
+    MatCheckboxModule,MatButtonModule,MatCardModule,FlexLayoutModule,FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

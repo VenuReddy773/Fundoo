@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/Services/userService/user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
     submitted = false;
     public showPassword: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private userService: UserService) { }
 
   ngOnInit(): void {
       this.registerForm = this.formBuilder.group({
@@ -20,14 +21,26 @@ export class SignupComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      service: ['venu', Validators.required]
   });
   }
-  create(){
+  Next(){
     if(this.registerForm.valid){
-
+      let reqdata={
+        firstName:this.registerForm.value.firstName,
+        lastName:this.registerForm.value.lastName,
+        email:this.registerForm.value.email,
+        password:this.registerForm.value.password,
+        service:this.registerForm.value.service
+      }
       console.log(this.registerForm.value);
       //calling api in this palce
+      this.userService.Signup(reqdata).subscribe(response =>{
+        console.log(response);
+      },error =>{
+        console.log(error);
+      })                
     }else{
       console.log("form is not valid please, fill the form correctly");
       return;
