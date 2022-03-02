@@ -29,8 +29,9 @@ export class LoginComponent implements OnInit {
       }
       console.log(this.loginForm.value);
       //calling api in this palce
-      this.userService.login(reqdata).subscribe((Response)=>{
-        console.log(Response);
+      this.userService.login(reqdata).subscribe((response:any)=>{
+        localStorage.setItem("token",response.id);
+        console.log("login",response);
       },error =>{
         console.log(error);
       })          

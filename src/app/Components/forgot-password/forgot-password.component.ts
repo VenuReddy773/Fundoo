@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/userService/user.service';
 
 @Component({
@@ -11,23 +10,31 @@ import { UserService } from 'src/app/Services/userService/user.service';
 export class ForgotPasswordComponent implements OnInit {
   forgotForm: FormGroup;
   submitted = false;
-  constructor(private formBuilder:FormBuilder,route:Router) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
     this.forgotForm = this.formBuilder.group({
-    email:['',[Validators.required,Validators.email]]
-  }); 
-}
-submit(){
-  if(this.forgotForm.valid){
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
+  submit() {
+    if (this.forgotForm.valid) {
+      let reqdata = {
+        email: this.forgotForm.value.email
+      }
+      console.log(this.forgotForm.value);
+      //calling api in this palce
+      this.userService.forgotPassword(reqdata).subscribe(response => {
+        console.log(response);
+      }, error => {
+        console.log(error);
+      })
 
-    console.log(this.forgotForm.value);
-    //calling api in this palce
+    }
+    else {
+      console.log("form is not valid please, fill the form correctly");
+      return;
+    }
   }
-  else{
-    console.log("form is not valid please, fill the form correctly");
-    return;
-  }
-}
 }
 

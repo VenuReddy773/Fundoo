@@ -6,8 +6,10 @@ import { HttpHeaders } from '@angular/common/http'
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private httpService:HttpService) { }
+  token:any
+  constructor(private httpService:HttpService) { 
+    this.token=localStorage.getItem("token")
+   }
 
   Signup(data:any){
     let headersObject={
@@ -29,8 +31,24 @@ export class UserService {
     return this.httpService.postService('/user/login',data,false,headersObject)
   }
 
-  forgotPassword() {}
-
-  resetPassword() {}
+  forgotPassword(data:any) {
+    let headersObject={
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log("forgot called")
+    return this.httpService.postService('/user/reset',data,false,headersObject)
+  }
+  resetPassword(data:any,token:any) {
+    let headersObject={
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization':token
+      })
+    }
+    console.log("forgot called")
+    return this.httpService.postService('/user/reset-password',data,true,headersObject)
+  }
 
 }

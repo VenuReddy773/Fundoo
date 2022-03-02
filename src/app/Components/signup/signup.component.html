@@ -1,63 +1,63 @@
-<div class="signup"  fxLayoutAlign="space-evenly center">
+<div class="signup" fxLayoutAlign="space-evenly center">
   <mat-card fxFlex="55">
     <form [formGroup]="registerForm" (ngSubmit)="Next()">
-    <h1 >
-      <span style="color:#1a73e8">F</span>
-      <span style="color:red">u</span>
-      <span style="color:yellow">n</span>
-      <span style="color:#1a73e8">d</span>
-      <span style="color:green">o</span>
-      <span style="color:red">o</span>
-    </h1>
-    <div class="header">
-      <p>Create your Fundoo Account</p>
-    </div>
-    <div fxLayout="column">
-      <div fxLayout="row" fxLayoutGap="10px" >
-        <mat-form-field  appearance="outline">
-          <mat-label>First name</mat-label>
-          <input matInput formControlName="firstName" >
-          <mat-error>required</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Last name</mat-label>
-          <input matInput formControlName="lastName" >
-          <mat-error>required</mat-error>
-        </mat-form-field>
+      <h1>
+        <span style="color:#1a73e8">F</span>
+        <span style="color:red">u</span>
+        <span style="color:yellow">n</span>
+        <span style="color:#1a73e8">d</span>
+        <span style="color:green">o</span>
+        <span style="color:red">o</span>
+      </h1>
+      <div class="header">
+        <p>Create your Fundoo Account</p>
       </div>
       <div fxLayout="column">
-        <mat-form-field [style.width.px]="410" appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" >
-          <mat-hint>You can use letters,numbers & periods</mat-hint>
-          <mat-error>Email required</mat-error>
-        </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName">
+            <mat-error>required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastName">
+            <mat-error>required</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column">
+          <mat-form-field [style.width.px]="410" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-hint>You can use letters,numbers & periods</mat-hint>
+            <mat-error>Email required</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+            <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+            <mat-error>required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword">
+            <mat-error>required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="check">
+          <mat-checkbox matSuffix (click)="checkboxPassword()">Show Password</mat-checkbox>
+        </div>
+        <div class="bottom" fxLayout="row" fxLayoutGap="31%">
+          <a class="link" mat-button routerLink="/signin"><strong>Sign in instead</strong></a>
+          <button class="button" mat-raised-button color="Primary">Next</button>
+        </div>
+        <div class="image">
+          <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg">
+          <p>One account. All of Fundoo working for you.</p>
+        </div>
       </div>
-      <div fxLayout="row" fxLayoutGap="10px">
-        <mat-form-field  appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" >
-          <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
-          <mat-error>required</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Confirm</mat-label>
-          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" >
-          <mat-error>required</mat-error>
-        </mat-form-field>
-      </div>      
-      <div class="check">
-        <mat-checkbox matSuffix (click)="checkboxPassword()" >Show Password</mat-checkbox>
-      </div>
-      <div class="bottom" fxLayout="row" fxLayoutGap="31%">
-        <a class="link" mat-button routerLink="/signin" ><strong>Sign in instead</strong></a>
-        <button class="button" mat-raised-button color="Primary">Next</button>       
-      </div>
-      <div class="image">
-        <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"  >
-        <p>One account. All of Fundoo working for you.</p>
-      </div>
-    </div>
-  </form>
-  </mat-card> 
+    </form>
+  </mat-card>
 </div>
