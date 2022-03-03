@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
       }
       console.log(this.loginForm.value);
       //calling api in this palce
-      this.userService.login(reqdata).subscribe((response:any)=>{
-        localStorage.setItem("token",response.id);
-        console.log("login",response);
-      },error =>{
+      this.userService.login(reqdata).subscribe((response:any) => {
+        console.log(response);
+        localStorage.setItem("token",response.id)        
+      }, error => {
         console.log(error);
-      })          
+      })       
     }
     else{
       console.log("form is not valid please, fill the form correctly");

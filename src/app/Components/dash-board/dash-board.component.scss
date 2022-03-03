@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.searchBar{
+    height : 45px;
+    border : 0.05px solid rgb(211, 205, 205);
+    border-radius : 8px;
+    padding-left : 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    margin-left: 150px;
+    background-color: transparent;
+    background-color: #ebebeb;
+}
+.sidenav-container{
+     flex: 1 ;
+}
+.Logo {
+    width : 40px;
+    height: 40px;
+}
+.project{
+    padding-top: 12px;
+    font: 22px;
+    font-family:Arial, Helvetica, sans-serif
+}
+.tool{
+    padding-left: 200px;
+    opacity: 0.8;    
+}
+.toolbar{
+    border-bottom: 0.5px solid #dadce0;
+}
+.apps{
+    margin-left: 30px;
+}
+.icon:hover{
+    background-color: #FEEFC3;
+    border-top-right-radius:50px ;
+    border-bottom-right-radius: 50px;
+}
+.icon{
+    margin: 1px;
+    opacity: 0.8;
+}
+.content{
+    background-color: white;
+}
+.inputsearch{
+    width: 500px;
+    height: 40px;
+    border-radius: none ;
+    border-color: grey;
+}
+.details{
+    padding-top: 14px;
+    padding-left: 10px;
+}
+  

@@ -47,7 +47,7 @@ export class UserService {
         'Authorization':token
       })
     }
-    console.log("forgot called")
+    console.log("reset called")
     return this.httpService.postService('/user/reset-password',data,true,headersObject)
   }
 

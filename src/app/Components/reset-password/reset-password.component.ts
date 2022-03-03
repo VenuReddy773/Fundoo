@@ -11,37 +11,37 @@ import { UserService } from 'src/app/Services/userService/user.service';
 export class ResetPasswordComponent implements OnInit {
   resetForm: FormGroup;
   submitted = false;
-    public showPassword: boolean = false;
-    token:any;
+  public showPassword: boolean = false;
+  token: any;
 
-  constructor(private formBuilder:FormBuilder, private userService:UserService,private activeRoute:ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-     this.token = this.activeRoute.snapshot.paramMap.get('token');
+    this.token = this.activeRoute.snapshot.paramMap.get('token');
     this.resetForm = this.formBuilder.group({
-      NewPassword:['',[Validators.required,Validators.minLength(8)]],
-      ConfirmPassword:['',[Validators.required,Validators.minLength(8)]]
-    }); 
+      NewPassword: ['', [Validators.required, Validators.minLength(8)]],
+      ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]]
+    });
   }
-  submit(){
-    if(this.resetForm.valid){
-      let reqdata={
-        newPassword:this.resetForm.value.NewPassword
+  submit() {
+    if (this.resetForm.valid) {
+      let reqdata = {
+        newPassword: this.resetForm.value.NewPassword
       }
       console.log(this.resetForm.value);
       //calling api in this palce
-      this.userService.resetPassword(reqdata,this.token).subscribe((response:any)=>{
-        console.log("reset called",response);
-      },error =>{
+      this.userService.resetPassword(reqdata, this.token).subscribe((response: any) => {
+        console.log("Password Changed");
+      }, error => {
         console.log(error);
-      })          
-    }else{
+      })
+    } else {
       console.log("form is not valid please, fill the form correctly");
       return;
     }
   }
   public checkboxPassword(): void {
-  this.showPassword = !this.showPassword;
+    this.showPassword = !this.showPassword;
   }
 
 }
