@@ -14,7 +14,7 @@
                 <mat-icon>search</mat-icon>
             </button>
             <div >
-                <input class="inputsearch" type="text" placeholder="Search">
+                <input class="inputsearch" type="text" placeholder="Search" style="background-color: transparent">
             </div>
         </div>
         <div class="tool" fxLayout="row" fxLayoutGap="15px">
@@ -71,8 +71,8 @@
                 </mat-list-item>
             </mat-nav-list>
         </mat-sidenav>
-        <mat-sidenav-content class="content">
-            <p><app-take-notes></app-take-notes></p>
+        <mat-sidenav-content class="content" fxLayout.gt-lg="row">
+            <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

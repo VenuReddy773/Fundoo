@@ -1,4 +1,4 @@
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -7,16 +7,17 @@ import { environment } from 'src/environments/environment';
 })
 export class HttpService {
   BaseUrl = environment.BaseUrl;
+  token: any
 
-  constructor(private http:HttpClient) { }
-  postService(url:string,reqdata:any,token:boolean=false,httpOptions:any={})
-  {
-    return this.http.post(this.BaseUrl + url, reqdata,token && httpOptions);
+  constructor(private http: HttpClient) { }
+  postService(url: string, reqdata: any, token: boolean = false, httpOptions: any = {}) {
+    return this.http.post(this.BaseUrl + url, reqdata, token && httpOptions);
   }
 
-  getService(){}
+  getService(url: string, httpOptions: any = {}) {
+    return this.http.get(this.BaseUrl + url,httpOptions);
+  }
+  putService() { }
 
-  putService(){}
-
-  deleteService(){}
+  deleteService() { }
 }

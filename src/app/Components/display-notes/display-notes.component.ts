@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
   selector: 'app-display-notes',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-notes.component.scss']
 })
 export class DisplayNotesComponent implements OnInit {
+  @Input() savedNotes: any= [];
+  tokenId = localStorage.getItem("Token");
 
-  constructor() { }
+  constructor(private note:NoteService) { }
 
   ngOnInit(): void {
   }

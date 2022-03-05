@@ -24,6 +24,7 @@ import { IconsComponent } from './Components/icons/icons.component';
 import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
 import { DisplayNotesComponent } from './Components/display-notes/display-notes.component';
+import { AuthguardService } from './authguard.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { DisplayNotesComponent } from './Components/display-notes/display-notes.
     MatCheckboxModule,MatButtonModule,MatCardModule,FlexLayoutModule,FormsModule,HttpClientModule,MatSidenavModule,
     MatIconModule,MatToolbarModule,MatListModule
   ],
-  providers: [],
+  providers: [
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
