@@ -9,17 +9,13 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 })
 export class DisplayNotesComponent implements OnInit {
   @Input() savedNotes: any ;
-  colorData:string='';
   title: any;
   description: any;
 
   constructor(public dialog: MatDialog) { }
   ngOnInit(): void {
   }
-  receiveToUpdate=($colorData:string) => {
-    this.colorData = $colorData;
-    console.log("display " + this.colorData) 
-  }
+ 
   openDialog(note: any) {
     let dialogRef = this.dialog.open(UpdateNoteComponent, { width: '550px', data: note });
     dialogRef.afterClosed().subscribe(result => {
