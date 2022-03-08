@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,EventEmitter,Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
@@ -8,13 +8,19 @@ import { NoteService } from 'src/app/Services/noteService/note.service';
 })
 export class IconsComponent implements OnInit {
   @Input() noteObject: any;
-
+  @Output() transColor:EventEmitter<string> = new EventEmitter<string>();
+  isColor:string='';
   constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
     console.log(this.noteObject)
   }
-
+  receiveColorCode = ($isColor:string) =>{
+    console.log("icons " + $isColor);
+    this.isColor = $isColor;
+    console.log("singleIcon " + this.isColor)
+    this.transColor.emit(this.isColor)
+  }
   delete() {
     let reqdata = {
       noteIdList: [this.noteObject.id],
@@ -23,6 +29,14 @@ export class IconsComponent implements OnInit {
     this.noteService.deleteNote(reqdata).subscribe((response: any) => {
       console.log(response);
     })
-    // console.log(this.array.id)
+  }
+  archive() {
+    let reqdata = {
+      noteIdList: [this.noteObject.id],
+      isArchived: true,
+    }
+    this.noteService.archiveNote(reqdata).subscribe((response: any) => {
+      console.log(response);
+    })
   }
 }

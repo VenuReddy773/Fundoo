@@ -14,7 +14,6 @@ import { UserService } from 'src/app/Services/userService/user.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  user='1';
   public showPassword: boolean = false;
   constructor(private formBuilder:FormBuilder, private userService:UserService,private router:Router) { }
 
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
       this.userService.login(reqdata).subscribe((response:any) => {
         console.log(response);
         localStorage.setItem("token",response.id) 
-        localStorage.setItem("SessionUser",this.user)
         this.router.navigate(["/dashboard"]); 
              
       }, error => {

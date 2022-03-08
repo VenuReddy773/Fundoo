@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit,Output,EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -17,7 +17,7 @@ export class UpdateNoteComponent implements OnInit {
     console.log(this.data);
     this.noteId=this.data.id
     this.title = this.data.title,
-      this.description = this.data.description
+    this.description = this.data.description
   }
 
   update() {
@@ -28,6 +28,7 @@ export class UpdateNoteComponent implements OnInit {
     }
     this.noteService.updateNote(reqdata).subscribe((response: any) => {
       console.log(response);
+      window.location.reload()
     });
     this.dialogRef.close();
   }

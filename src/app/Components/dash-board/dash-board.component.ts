@@ -18,8 +18,6 @@ export class DashBoardComponent implements OnInit {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-
-
   ngOnInit(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
@@ -27,4 +25,14 @@ export class DashBoardComponent implements OnInit {
     localStorage.removeItem('token')
     this.router.navigateByUrl('signin');
   }
+  archivedList(){
+    this.router.navigateByUrl('dashboard/archived')
+  }
+  trashList(){
+    this.router.navigateByUrl('dashboard/bin')
+  }
+  notes(){
+    this.router.navigateByUrl('dashboard/notes')
+  }
+  
 }

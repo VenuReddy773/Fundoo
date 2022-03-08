@@ -28,6 +28,9 @@ import { AuthguardService } from './authguard.service';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNoteComponent } from './Components/update-note/update-note.component';
+import { TrashNotesListComponent } from './Components/trash-notes-list/trash-notes-list.component';
+import { ArchivedNotesListComponent } from './Components/archived-notes-list/archived-notes-list.component';
+import { ColorPaletteComponent } from './Components/color-palette/color-palette.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { UpdateNoteComponent } from './Components/update-note/update-note.compon
     TakeNotesComponent,
     GetAllNotesComponent,
     DisplayNotesComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    TrashNotesListComponent,
+    ArchivedNotesListComponent,
+    ColorPaletteComponent
   ],
   imports: [
     BrowserModule,

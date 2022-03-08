@@ -1,5 +1,5 @@
-<div class="container" [class.example-is-mobile]="mobileQuery.matches" fxFlexFill>
-    <mat-toolbar class="toolbar">
+<div class="container" [class.example-is-mobile]="mobileQuery.matches" >
+    <mat-toolbar class="toolbar" >
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
             <button mat-icon-button (click)="isExpanded=!isExpanded">
                 <mat-icon>menu</mat-icon>
@@ -34,6 +34,7 @@
                 <img src="assets/account_circle_black_24dp.svg">
             </button>
             <mat-menu #menu="matMenu">
+                <h3>Hi...venu Gopal Reddy</h3>
                 <button mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
         </div>
@@ -42,7 +43,7 @@
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" opened="true"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="50" >
             <mat-nav-list (mouseover)="isExpanded=true" (mouseleave)="isExpanded=false" >
-                <mat-list-item class="icon">
+                <mat-list-item class="icon" (click)="notes()" >
                     <div>
                         <button mat-icon-button><img src="assets/lightbulb_black_24dp.svg"></button>
                     </div>
@@ -60,15 +61,15 @@
                     </div>
                     <p class="details" *ngIf="isExpanded">Edit Labels</p>
                 </mat-list-item>
-                <mat-list-item class="icon">
+                <mat-list-item class="icon" (click)="archivedList()">
                     <div>
-                        <button mat-icon-button><img src="assets/archive_black_24dp.svg"></button>
+                        <button mat-icon-button ><img src="assets/archive_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Archive</p>
                 </mat-list-item>
-                <mat-list-item class="icon">
+                <mat-list-item class="icon" (click)="trashList()">
                     <div>
-                        <button mat-icon-button><img src="assets/delete_outline_black_24dp.svg"></button>
+                        <button mat-icon-button ><img src="assets/delete_outline_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Trash</p>
                 </mat-list-item>
