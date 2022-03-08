@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NoteService } from 'src/app/Services/noteService/note.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
   selector: 'app-display-notes',
@@ -7,12 +8,19 @@ import { NoteService } from 'src/app/Services/noteService/note.service';
   styleUrls: ['./display-notes.component.scss']
 })
 export class DisplayNotesComponent implements OnInit {
-  @Input() savedNotes: any= [];
-  tokenId = localStorage.getItem("Token");
+  @Input() savedNotes: any ;
+  title: any;
+  description: any;
 
-  constructor(private note:NoteService) { }
-
+  constructor(public dialog: MatDialog) { }
   ngOnInit(): void {
   }
-
+  openDialog(note: any) {
+    let dialogRef = this.dialog.open(UpdateNoteComponent, { width: '550px', data: note });
+    dialogRef.afterClosed().subscribe(result => {
+      this.description;
+      this.title;
+      console.log(result)
+    });
+  }
 }

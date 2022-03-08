@@ -23,12 +23,8 @@ export class DashBoardComponent implements OnInit {
   ngOnInit(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
-  canActivate(): boolean {  
-    if (!this.authService.gettoken()) {  
-        this.router.navigateByUrl("/dashboard");  
-    }  
-    return this.authService.gettoken();  
-}  
-
+  logout() {    
+    localStorage.removeItem('token')
+    this.router.navigateByUrl('signin');
+  }
 }

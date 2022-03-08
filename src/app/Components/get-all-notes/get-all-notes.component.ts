@@ -13,10 +13,10 @@ export class GetAllNotesComponent implements OnInit {
   constructor(private note: NoteService) { }
 
   ngOnInit(): void {
-    this.GetAllNotes()
+    this.getAllNotes()
     }
-  GetAllNotes(){
-    this.note.GetNotes().subscribe((reqdata:any)=>{
+  getAllNotes(){
+    this.note.getNotes().subscribe((reqdata:any)=>{
       this.notesArr=reqdata.data.data;
       console.log(this.notesArr)
     })      

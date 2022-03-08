@@ -1,0 +1,16 @@
+<div>
+    <mat-dialog-content >
+        <div>
+            <input class="titlenote" placeholder="Title" [(ngModel)]="title" >
+        </div>
+        <div>
+            <textarea class="content1" placeholder="Take note..." [(ngModel)]="description"></textarea>
+        </div>       
+    </mat-dialog-content>
+    <mat-dialog-actions >
+        <app-icons></app-icons>
+        <button class="close" (click)="update()" mat-flat-button>Close</button>
+    </mat-dialog-actions>
+</div>
+
+

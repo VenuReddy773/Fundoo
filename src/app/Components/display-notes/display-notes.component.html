@@ -1,0 +1,21 @@
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid" fxFlexFill>
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let note of savedNotes">
+            <mat-card style="width: 250px;">
+                <mat-card-content >
+                    <div>
+                        <p (click)="openDialog(note)"><strong>{{note.title}}</strong></p>
+                    </div>
+                    <div >
+                       <p (click)="openDialog(note)">
+                        {{note.description}}
+                       </p> 
+                    </div>
+                    <mat-card-footer >
+                        <app-icons [noteObject]="note"></app-icons>
+                    </mat-card-footer>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="container" [class.example-is-mobile]="mobileQuery.matches" fxFlexFill>
     <mat-toolbar class="toolbar">
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
             <button mat-icon-button (click)="isExpanded=!isExpanded">
@@ -13,7 +13,7 @@
             <button mat-icon-button>
                 <mat-icon>search</mat-icon>
             </button>
-            <div >
+            <div>
                 <input class="inputsearch" type="text" placeholder="Search" style="background-color: transparent">
             </div>
         </div>
@@ -30,48 +30,51 @@
             <button class="apps" mat-icon-button>
                 <img src="assets/apps_black_24dp.svg">
             </button>
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
                 <img src="assets/account_circle_black_24dp.svg">
             </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="logout()">Logout</button>
+              </mat-menu>
         </div>
     </mat-toolbar>
     <mat-sidenav-container class="sidenav-container" >
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" opened="true"
-            [fixedInViewport]="mobileQuery.matches" fixedTopGap="50">
-            <mat-nav-list (mouseover)="isExpanded=true" (mouseleave)="isExpanded=false">
-                <mat-list-item class="icon">                    
+            [fixedInViewport]="mobileQuery.matches" fixedTopGap="50" >
+            <mat-nav-list (mouseover)="isExpanded=true" (mouseleave)="isExpanded=false" >
+                <mat-list-item class="icon">
                     <div>
                         <button mat-icon-button><img src="assets/lightbulb_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Notes</p>
                 </mat-list-item>
                 <mat-list-item class="icon">
-                    <div >
+                    <div>
                         <button mat-icon-button><img src="assets/notifications_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Remainders</p>
                 </mat-list-item>
                 <mat-list-item class="icon">
-                    <div >
+                    <div>
                         <button mat-icon-button><img src="assets/edit_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Edit Labels</p>
                 </mat-list-item>
                 <mat-list-item class="icon">
-                    <div >
+                    <div>
                         <button mat-icon-button><img src="assets/archive_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Archive</p>
                 </mat-list-item>
                 <mat-list-item class="icon">
-                    <div >
+                    <div>
                         <button mat-icon-button><img src="assets/delete_outline_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Trash</p>
                 </mat-list-item>
             </mat-nav-list>
         </mat-sidenav>
-        <mat-sidenav-content class="content" fxLayout.gt-lg="row">
+        <mat-sidenav-content class="content">
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>

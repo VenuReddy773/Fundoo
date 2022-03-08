@@ -19,5 +19,7 @@ export class HttpService {
   }
   putService() { }
 
-  deleteService() { }
+  deleteService() {
+    
+   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
   selector: 'app-icons',
@@ -6,11 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  isExpanded=false;
+  @Input() noteObject: any;
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
+    console.log(this.noteObject)
   }
 
+  delete() {
+    let reqdata = {
+      noteIdList: [this.noteObject.id],
+      isDeleted: true,
+    }
+    this.noteService.deleteNote(reqdata).subscribe((response: any) => {
+      console.log(response);
+    })
+    // console.log(this.array.id)
+  }
 }

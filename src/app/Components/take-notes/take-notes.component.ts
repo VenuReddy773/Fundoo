@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
-
 
 @Component({
   selector: 'app-take-notes',
@@ -9,6 +7,7 @@ import { NoteService } from 'src/app/Services/noteService/note.service';
   styleUrls: ['./take-notes.component.scss']
 })
 export class TakeNotesComponent implements OnInit {
+  @Output() autoRefresh = new EventEmitter<any>(); 
   title: any;
   description: any;
   isExpand=false;
@@ -32,7 +31,9 @@ export class TakeNotesComponent implements OnInit {
       this.noteService.add(reqdata).subscribe((response: any) => {
         console.log(response);
         localStorage.setItem("token", response.id)
-        this.title.reset
+        this.title='';
+        this.description='';
+        this.autoRefresh.emit(response)
       }, error => {
         console.log(error);
       })

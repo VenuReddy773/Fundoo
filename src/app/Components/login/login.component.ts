@@ -16,14 +16,13 @@ export class LoginComponent implements OnInit {
   submitted = false;
   user='1';
   public showPassword: boolean = false;
-  constructor(private formBuilder:FormBuilder, private userService:UserService,private authService:AuthguardService,private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required,Validators.minLength(8)]]
+      password:['',[Validators.required,Validators.minLength(6)]]
     }); 
-    localStorage.setItem("SessionUser",this.user)
   } 
   login(){
     if(this.loginForm.valid){
@@ -36,18 +35,21 @@ export class LoginComponent implements OnInit {
       this.userService.login(reqdata).subscribe((response:any) => {
         console.log(response);
         localStorage.setItem("token",response.id) 
-        this.router.navigateByUrl('/dashboard');       
+        localStorage.setItem("SessionUser",this.user)
+        this.router.navigate(["/dashboard"]); 
+             
       }, error => {
         console.log(error);
-      })  
-          
+      })        
     }
     else{
       console.log("form is not valid please, fill the form correctly");
       return;
     }
+    
   }
   public checkboxPassword(): void {
   this.showPassword = !this.showPassword;
   }
+  
 }
