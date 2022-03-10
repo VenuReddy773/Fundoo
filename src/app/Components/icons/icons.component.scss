@@ -1,4 +1,21 @@
 .icons{
   opacity: 0.8;
 }
-
+.buttons{
+  padding-right: 180px;
+}
+.btn:hover{
+  outline-style: solid;
+  outline-color: black;
+  outline-width: 1px;
+}
+.colorwrap{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+  max-width: 170px;
+}
+.btn{
+  margin-left: 1px;
+  white-space: 5px;
+}

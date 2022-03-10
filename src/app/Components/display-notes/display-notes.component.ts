@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DataService } from 'src/app/Services/dataService/data.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
@@ -8,20 +9,30 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
   styleUrls: ['./display-notes.component.scss']
 })
 export class DisplayNotesComponent implements OnInit {
-  @Input() savedNotes: any ;
+  @Input() savedNotes: any;
+  @Output() iconsOutput = new EventEmitter<any>();
+  @Output() updateRefresh = new EventEmitter<any>();
   title: any;
   description: any;
+  searchKey:any
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private dataService:DataService) { }
   ngOnInit(): void {
-  }
- 
+    this.dataService.receivedData.subscribe((response:any)=>{
+      console.log(response);
+      this.searchKey=response;
+    })
+  } 
   openDialog(note: any) {
     let dialogRef = this.dialog.open(UpdateNoteComponent, { width: '550px', data: note });
     dialogRef.afterClosed().subscribe(result => {
       this.description;
       this.title;
-      console.log(result)
+      this.updateRefresh.emit('refresh')
     });
+  }
+  colorNote(e:any){  
+    console.log(e);
+    this.iconsOutput.emit("hello");
   }
 }

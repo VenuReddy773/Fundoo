@@ -30,7 +30,6 @@ export class TakeNotesComponent implements OnInit {
     if (this.title || this.description) {
       this.noteService.add(reqdata).subscribe((response: any) => {
         console.log(response);
-        localStorage.setItem("token", response.id)
         this.title='';
         this.description='';
         this.autoRefresh.emit(response)

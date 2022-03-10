@@ -1,5 +1,5 @@
-<div class="container" [class.example-is-mobile]="mobileQuery.matches" >
-    <mat-toolbar class="toolbar" >
+<div class="container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="toolbar">
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
             <button mat-icon-button (click)="isExpanded=!isExpanded">
                 <mat-icon>menu</mat-icon>
@@ -14,7 +14,7 @@
                 <mat-icon>search</mat-icon>
             </button>
             <div>
-                <input class="inputsearch" type="text" placeholder="Search" style="background-color: transparent">
+                <input class="inputsearch" type="text" placeholder="Search" style="background-color: transparent" (keyup)="search($event)">
             </div>
         </div>
         <div class="tool" fxLayout="row" fxLayoutGap="15px">
@@ -36,14 +36,14 @@
             <mat-menu #menu="matMenu">
                 <h3>Hi...venu Gopal Reddy</h3>
                 <button mat-menu-item (click)="logout()">Logout</button>
-              </mat-menu>
+            </mat-menu>
         </div>
     </mat-toolbar>
-    <mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav-container class="sidenav-container" fxFlexFill>
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" opened="true"
-            [fixedInViewport]="mobileQuery.matches" fixedTopGap="50" >
-            <mat-nav-list (mouseover)="isExpanded=true" (mouseleave)="isExpanded=false" >
-                <mat-list-item class="icon" (click)="notes()" >
+            [fixedInViewport]="mobileQuery.matches" fixedTopGap="50">
+            <mat-nav-list (mouseover)="isExpanded=true" (mouseleave)="isExpanded=false">
+                <mat-list-item class="icon" (click)="notes()">
                     <div>
                         <button mat-icon-button><img src="assets/lightbulb_black_24dp.svg"></button>
                     </div>
@@ -63,13 +63,13 @@
                 </mat-list-item>
                 <mat-list-item class="icon" (click)="archivedList()">
                     <div>
-                        <button mat-icon-button ><img src="assets/archive_black_24dp.svg"></button>
+                        <button mat-icon-button><img src="assets/archive_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Archive</p>
                 </mat-list-item>
                 <mat-list-item class="icon" (click)="trashList()">
                     <div>
-                        <button mat-icon-button ><img src="assets/delete_outline_black_24dp.svg"></button>
+                        <button mat-icon-button><img src="assets/delete_outline_black_24dp.svg"></button>
                     </div>
                     <p class="details" *ngIf="isExpanded">Trash</p>
                 </mat-list-item>

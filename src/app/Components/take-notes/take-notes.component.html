@@ -7,10 +7,10 @@
     <div *ngIf="isExpand" >
         <mat-card  fxLayout="column" fxFlex="125">
             <div>
-                <textarea class="titlenote"  placeholder="Title" [(ngModel)]="title"></textarea>
+                <input class="titlenote"  placeholder="Title" [(ngModel)]="title">
             </div>
             <div>
-                <textarea class="content1" placeholder="Take a note...." [(ngModel)]="description"></textarea>
+                <input class="content1" placeholder="Take a note...." [(ngModel)]="description">
             </div>
             <div fxLayout="row">
                 <app-icons ></app-icons>

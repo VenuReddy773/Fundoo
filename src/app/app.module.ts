@@ -30,7 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNoteComponent } from './Components/update-note/update-note.component';
 import { TrashNotesListComponent } from './Components/trash-notes-list/trash-notes-list.component';
 import { ArchivedNotesListComponent } from './Components/archived-notes-list/archived-notes-list.component';
-import { ColorPaletteComponent } from './Components/color-palette/color-palette.component';
+import { FilterPipe } from './pipe/searchPipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { ColorPaletteComponent } from './Components/color-palette/color-palette.
     UpdateNoteComponent,
     TrashNotesListComponent,
     ArchivedNotesListComponent,
-    ColorPaletteComponent
+    FilterPipe
   ],
   imports: [
     BrowserModule,

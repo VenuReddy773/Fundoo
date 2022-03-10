@@ -1,6 +1,12 @@
 .content{
-    padding-top: 50px;
-    padding-left: 20px;
+    padding-top: 80px;
+    padding-left: 70px;
+}
+.card{
+    border-color: lightgray;
+    border-radius: 4%;
+    border-width: 1px;
+    border-style:solid;
 }
 .icons{
     visibility: hidden;
@@ -10,4 +16,13 @@
 }
 .card:hover{
     box-shadow:3px 3px 3px gray ;
+}
+.texta{
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.titlenote{
+    flex-wrap: wrap;
+    flex-direction: row;
+
 }

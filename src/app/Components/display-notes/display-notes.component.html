@@ -1,19 +1,15 @@
-<div class="content" fxLayout="row wrap" fxLayoutGap="15px grid" fxFlexFill>
-    <div *ngFor="let note of savedNotes">
-        <mat-card class="card" >
-            <mat-card-content>
-                <div>
-                    <p (click)="openDialog(note)"><strong>{{note.title}}</strong></p>
-                </div>
-                <div>
-                    <p (click)="openDialog(note)">
-                        {{note.description}}
-                    </p>
-                </div>
-                <mat-card-footer >
-                    <app-icons class="icons" [noteObject]="note"></app-icons>
-                </mat-card-footer>
-            </mat-card-content>
+<div class="content" fxLayout="row wrap"  fxFlexFill  fxLayoutGap="20px grid" >
+    <div *ngFor="let note of savedNotes | filter:searchKey " >
+        <mat-card class="card" [style.background]="note.color"  >
+            <div>
+                <mat-card-title class="titlenote" (click)="openDialog(note)">{{note.title}}</mat-card-title>
+            </div>
+            <div>
+                <mat-card-subtitle class="texta" (click)="openDialog(note)">{{note.description}}</mat-card-subtitle>
+            </div>
+            <mat-card-footer>
+                <app-icons class="icons" (iconsOutput)="colorNote($event)" [noteObject]="note"></app-icons>
+            </mat-card-footer>
         </mat-card>
     </div>
 </div>

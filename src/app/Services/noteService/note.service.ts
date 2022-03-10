@@ -82,5 +82,27 @@ export class NoteService {
     console.log("archivedNoteList called")
     return this.http.getService('/notes/getArchiveNotesList', headersObject)
   }
+
+  cardColor(data:any){ 
+    let headersObject= {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization':this.token
+      })
+    }
+    console.log("color called")
+    return this.http.postService('/notes/changesColorNotes',data,true,headersObject)
+   }
+
+   deleteforever(data: any){
+    let headersObject= {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization':this.token
+      })
+    }
+    console.log("delete forever called")
+    return this.http.postService('/notes/deleteForeverNotes',data,true,headersObject)
+   }
 }
 

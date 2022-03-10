@@ -8,7 +8,6 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { DisplayNotesComponent } from './Components/display-notes/display-notes.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
-import { AuthguardService } from './authguard.service';
 import { ArchivedNotesListComponent } from './Components/archived-notes-list/archived-notes-list.component';
 import { TrashNotesListComponent } from './Components/trash-notes-list/trash-notes-list.component';
 

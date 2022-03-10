@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       //calling api in this palce
       this.userService.login(reqdata).subscribe((response:any) => {
         console.log(response);
-        localStorage.setItem("token",response.id) 
+        localStorage.setItem("token",response.id);
         this.router.navigate(["/dashboard"]); 
              
       }, error => {

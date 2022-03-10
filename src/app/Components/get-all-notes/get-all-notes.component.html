@@ -1,2 +1,3 @@
 <app-take-notes (autoRefresh)="autoRefresh($event)" ></app-take-notes>
-<app-display-notes fxLayout="row" [savedNotes]="notesArr" ></app-display-notes>
+
+<app-display-notes fxLayout="row"  (updateRefresh)="update($event)" (iconsOutput)="colorNote($event)" [savedNotes]="notesArr" ></app-display-notes>

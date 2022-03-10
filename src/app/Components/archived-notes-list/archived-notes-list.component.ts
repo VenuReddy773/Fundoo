@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { NoteService } from 'src/app/Services/noteService/note.service';
 })
 export class ArchivedNotesListComponent implements OnInit {
   archivedList:any
+  @Output() iconsOutput = new EventEmitter<any>();
   constructor(private noteService:NoteService) { }
 
   ngOnInit(): void {
@@ -18,5 +19,8 @@ export class ArchivedNotesListComponent implements OnInit {
       this.archivedList=response.data.data
       console.log(this.archivedList)
     })
+  }
+  unarchive(e:any){
+    this.getArchivedList();
   }
 }
